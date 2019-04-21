@@ -6,12 +6,11 @@ def main():
     MainController.write_name()
     MainController.read_data()
     MainController.get_file_data()
+    MainController.get_doctest()
 
 
 if __name__ == '__main__':
     main()
-    import doctest
-    doctest.testmod()
 
 
 

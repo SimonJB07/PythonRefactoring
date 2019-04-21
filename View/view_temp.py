@@ -1,19 +1,23 @@
 
 class ViewTemp:
 
-    file_path = '../Data/ClassDiagram.txt'
-    output_file_name = 'output_file.py'
+    file_input_path = '../Data/'
+    file_input_name = 'ClassDiagram.txt'
+    file_output_name = 'output_file.py'
+    file_output_path = '../DataOutput/'
 
     @staticmethod
-    def get_class_name():
+    def get_input_location():
         try:
-            return ViewTemp.file_path
+            in_location = ViewTemp.file_input_path + ViewTemp.file_input_name
+            return in_location
         except FileNotFoundError:
-            print('FILE NOT FIND ON COMPUTER')
+            print('FILE NOT FIND ')
         except Exception as e:
             print(e)
 
     @staticmethod
-    def get_output_name():
-        return ViewTemp.output_file_name
+    def get_output_location():
+        out_location = ViewTemp.file_output_path + ViewTemp.file_output_name
+        return out_location
 

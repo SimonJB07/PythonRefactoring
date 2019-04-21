@@ -1,4 +1,4 @@
-from Model.validate_data_test import ValidateData
+from Model.validate_data import ValidateData
 from Model.set_up_class import SetUp
 
 

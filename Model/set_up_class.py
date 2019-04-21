@@ -6,12 +6,6 @@ from Model.format_data import FormatData
 
 class SetUp:
     """The class's docstring
-    >>> SetUp.class_dict == {}
-    True
-    >>> SetUp.file_setup_name == ''
-    True
-    >>> SetUp.class_relationship == []
-    True
     """
     uml_list = []
     class_dict = {}
@@ -31,6 +25,7 @@ class SetUp:
     def set_over_string(overall_file):
         """This checks to see if there is a class dict
         """
+
         if type(overall_file) == list:
             try:
                 for line in overall_file:
@@ -53,6 +48,7 @@ class SetUp:
                         SetUp.class_dict = {}
                         SetUp.attribute_list = []
                         SetUp.method_list = []
+                        SetUp.class_relationship = []
                 SetUp.pass_file()
             except Exception as e:
                 print("OVER STRING ERROR: ")
@@ -64,10 +60,6 @@ class SetUp:
     @staticmethod
     def set_up_class_name(python_class_name):
         """this returns the class name
-        >>> SetUp.set_up_class_name('DiagramModel')
-        'DiagramModel'
-        >>> SetUp.set_up_class_name('TestModel')
-        'TestModel'
         """
         if type(python_class_name) == str:
             try:
@@ -84,12 +76,6 @@ class SetUp:
     @staticmethod
     def set_up_attribute_name(attribute_name):
         """This changes String into the str or the diagram
-        >>> SetUp.set_up_attribute_name('String data_name:')
-        'str  data_name:'
-        >>> SetUp.set_up_attribute_name('List id_number:')
-        'list  id_number:'
-        >>> SetUp.set_up_attribute_name('int count_students:')
-        'int  count_students:'
         """
         if type(attribute_name) == str:
             try:
@@ -107,8 +93,6 @@ class SetUp:
     @staticmethod
     def set_up_method_name(method_name):
         """this removes the String from the method attributes
-        >>> SetUp.set_up_method_name('String name')
-        ' name'
         """
         if type(method_name) == str:
             try:
@@ -127,14 +111,14 @@ class SetUp:
     @staticmethod
     def set_up_relationship(relationship_value):
         """this method converts diagram to workable class
-        >>> SetUp.set_up_relationship('DiagramModel--TestModel')
-        DiagramModel--TestModel
         """
+
         if type(relationship_value) == str:
             try:
                 temp_rel = SetUp.clean_up_relationship(relationship_value)
                 clean_string = FormatData.format_relationship(temp_rel)
                 SetUp.class_relationship.append(clean_string)
+                return clean_string
             except Exception as e:
                 print("RELATIONSHIP VALUE ERROR: ")
                 print(e)
@@ -146,30 +130,6 @@ class SetUp:
     @staticmethod
     def clean_up_relationship(relationship):
         """this picks out the right value for the relationship
-        >>> SetUp.clean_up_relationship('<|--')
-        ' extension '
-        >>> SetUp.clean_up_relationship('*--')
-        ' composition '
-        >>> SetUp.clean_up_relationship('o--')
-        ' aggregation '
-        >>> SetUp.clean_up_relationship('-->')
-        ' directed association '
-        >>> SetUp.clean_up_relationship('..|>')
-        ' implementation '
-        >>> SetUp.clean_up_relationship('..>')
-        ' dependency '
-        >>> SetUp.clean_up_relationship('<--*')
-        ' composition association '
-        >>> SetUp.clean_up_relationship('x--')
-        ' containment '
-        >>> SetUp.clean_up_relationship('}--')
-        ' crows feet '
-        >>> SetUp.clean_up_relationship('^--')
-        ' interface '
-        >>> SetUp.clean_up_relationship('..') #I had those last too higher up which failed
-        ' inheritance '
-        >>> SetUp.clean_up_relationship('--')
-        ': '
         """
         if type(relationship) == str:
             try:
@@ -197,8 +157,6 @@ class SetUp:
     @staticmethod
     def reverse_words(word):
         """this reverse words in a string
-        >>> SetUp.reverse_words('too word')
-        'word too'
         """
         if type(word) == str:
             return ' '.join(reversed(word.split()))
@@ -209,20 +167,6 @@ class SetUp:
     @staticmethod
     def clear_up_data(data):
         """this converts to a class diagram str
-        >>> SetUp.clear_up_data('String')
-        'str '
-        >>> SetUp.clear_up_data('int')
-        'int '
-        >>> SetUp.clear_up_data('Float')
-        'float '
-        >>> SetUp.clear_up_data('Boolean')
-        'bool '
-        >>> SetUp.clear_up_data('List')
-        'list '
-        >>> SetUp.clear_up_data('Tuple')
-        'tuple '
-        >>> SetUp.clear_up_data('Dict')
-        'dict '
         """
         if type(data) == str:
             try:
@@ -242,7 +186,3 @@ class SetUp:
             print("ERROR: SETUP CLEAR UP DATA: data type is not corrected ")
             print(type(data))
 
-
-if __name__ == '__main__':
-    import doctest
-    doctest.testmod(verbose=True)

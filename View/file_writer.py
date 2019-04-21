@@ -1,5 +1,4 @@
 
-
 class FileWriter:
     """The class's docstring"""
 
@@ -12,7 +11,7 @@ class FileWriter:
         # print(overall_content)
         if type(file_name) == str:
             if type(overall_content) == list:
-                if file_name == 'output_file.py':
+                if file_name == '../DataOutput/output_file.py':
                     with open(file_name, "w") as output_file:
                         count = 0
                         for dict_item in overall_content:
