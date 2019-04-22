@@ -1,6 +1,6 @@
 from cmd import Cmd
 from Controller.main_controller import MainController
-from Model.set_up_class import SetUp
+from Model.set_up_diagram import self
 
 
 class TestData(Cmd):
@@ -30,7 +30,7 @@ class TestData(Cmd):
         :param the_data: a string representing relationships
         :return: None
         """
-        relationship = SetUp.class_relationship
+        relationship = self.class_relationship
         if relationship:
             print(relationship)
         else:

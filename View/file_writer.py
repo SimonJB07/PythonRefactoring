@@ -3,16 +3,16 @@ class FileWriter:
     """The class's docstring"""
 
     @staticmethod
-    def file_writer(file_name, overall_content):
+    def file_writer(output_file_name, overall_content):
         """this writes to a file using dict as kes
         and having the values as the print outs
         the loop steps though each key in dict
         """
         # print(overall_content)
-        if type(file_name) == str:
+        if type(output_file_name) == str:
             if type(overall_content) == list:
-                if file_name == '../DataOutput/output_file.py':
-                    with open(file_name, "w") as output_file:
+                if output_file_name == '../DataOutput/output_file.py':
+                    with open(output_file_name, "w") as output_file:
                         count = 0
                         for dict_item in overall_content:
                             file_output = dict(dict_item)
