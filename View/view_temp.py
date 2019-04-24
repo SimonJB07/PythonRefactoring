@@ -7,7 +7,7 @@ class ViewTemp:
     file_output_path = '../DataOutput/'
 
     @staticmethod
-    def get_input_location():
+    def input_location():
         try:
             in_location = ViewTemp.file_input_path + ViewTemp.file_input_name
             return in_location
@@ -17,7 +17,7 @@ class ViewTemp:
             print(e)
 
     @staticmethod
-    def get_output_location():
+    def output_location():
         out_location = ViewTemp.file_output_path + ViewTemp.file_output_name
         return out_location
 
