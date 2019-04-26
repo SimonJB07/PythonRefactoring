@@ -4,6 +4,11 @@ from View.view_temp import ViewTemp
 from Tests.test_set_up_class import TestSetUp
 from Tests.main_test_file import tests
 from Model.set_up_diagram import SetUp
+from Model.class_name import ClassName
+from Model.relationships import Relationships
+from Model.attributes import Attribute
+from Model.methods import Methods
+from Model.validate_data import ValidateData
 
 
 class MainController:
@@ -34,3 +39,28 @@ class MainController:
     def get_doctest():
         doc_test = tests()
         return doc_test
+
+    @staticmethod
+    def class_print(value, output_file):
+        ClassName.class_print(value, output_file)
+
+    @staticmethod
+    def relationship_print(value, output):
+        Relationships.relationship_print(value, output)
+
+    @staticmethod
+    def attribute_print(value, output):
+        Attribute.attribute_print(value, output)
+
+    @staticmethod
+    def methods_print(value, output):
+        Methods.methods_print(value, output)
+
+    @staticmethod
+    def pass_set_up(output):
+        SetUp.set_over_string(SetUp(), output)
+
+    @staticmethod
+    def pass_validate_data(output):
+        return ValidateData.validate_test_loader(output)
+

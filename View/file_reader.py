@@ -1,5 +1,5 @@
-from Model.validate_data import ValidateData
-from Model.set_up_diagram import SetUp
+from Controller.main_error_checker import ErrorChecker
+from View.view_temp import ViewTemp
 
 
 class FileReader:
@@ -12,19 +12,15 @@ class FileReader:
         end before passing the data
         """
         overall_reader_file = []
-        if type(input_file_name) == str:
-            if input_file_name == '../Data/ClassDiagram.txt':
-                with open(input_file_name, 'r') as diagram_file:
-                    for line in diagram_file:
-                        temp_line = line.replace('\n', '').replace(' ', '')
-                        overall_reader_file.append(temp_line)
-                    if ValidateData.validate_test_loader(overall_reader_file):
-                        SetUp.set_over_string(SetUp(), overall_reader_file)
-                    else:
-                        print('ERROR: FILE DON\'T LOADED')
+        ErrorChecker.error_type(str, input_file_name, "FILE NAME DON\'T LOAD: data type is not corrected")
+        ErrorChecker.error_name(ViewTemp.input_location(), input_file_name, "ERROR: INPUT FILE IS NOT FIND")
+
+        from Controller.main_controller import MainController
+        with open(input_file_name, 'r') as diagram_file:
+            for line in diagram_file:
+                temp_line = line.replace('\n', '').replace(' ', '')
+                overall_reader_file.append(temp_line)
+            if MainController.pass_validate_data(overall_reader_file):
+                MainController.pass_set_up(overall_reader_file)
             else:
-                print("ERROR: INPUT FILE IS NOT FIND")
-        else:
-            print("ERROR: FILE NAME DON\'T LOAD: data type is not corrected")
-
-
+                print('ERROR: FILE DON\'T LOADED')

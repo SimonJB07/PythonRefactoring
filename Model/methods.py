@@ -16,3 +16,10 @@ class Methods:
         except Exception as e:
             print("METHOD NAME ERROR: ")
             print(e)
+
+    @staticmethod
+    def methods_print(value, output):
+        for methods in value:
+            print(f"    @staticmethod", file=output)
+            print(f"    def {methods}:", file=output)
+            print(f"        pass\n", file=output)

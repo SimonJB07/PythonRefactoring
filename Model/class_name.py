@@ -16,3 +16,7 @@ class ClassName:
         else:
             print("ERROR: SETUP CLASS NAME: data type is not corrected ")
             print(type(python_class_name))
+
+    @staticmethod
+    def class_print(value, output):
+        print(f"class {value}:", file=output)

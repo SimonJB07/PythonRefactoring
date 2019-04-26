@@ -4,8 +4,6 @@ class ErrorChecker:
 
     @staticmethod
     def error_type(type_class, value_to_check, error_message):
-        # print(value_to_check)
-        # print(type_class)
         if type_class == type(value_to_check):
             pass
         else:

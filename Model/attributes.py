@@ -17,4 +17,8 @@ class Attribute:
             print("ATTRIBUTE NAME ERROR: ")
             print(e)
 
-
+    @staticmethod
+    def attribute_print(value, output):
+        for attributes in value:
+            print(f"        self.{attributes}", file=output)
+        print(f"        ", file=output)

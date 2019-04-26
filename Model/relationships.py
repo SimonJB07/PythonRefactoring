@@ -18,6 +18,11 @@ class Relationships:
             print("RELATIONSHIP VALUE ERROR: ")
             print(e)
 
+    @staticmethod
+    def relationship_print(value, output):
+        print(f"    def __inti__(self):", file=output)
+        for relationship in value:
+            print(f"        self.{relationship}", file=output)
 
     @staticmethod
     def clean_up_relationship(relationship):
