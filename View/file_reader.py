@@ -1,5 +1,5 @@
 from Controller.main_error_checker import ErrorChecker
-from View.view_temp import ViewTemp
+from View.view_file_location import ViewFileLocation
 
 
 class FileReader:
@@ -13,7 +13,7 @@ class FileReader:
         """
         overall_reader_file = []
         ErrorChecker.error_type(str, input_file_name, "FILE NAME DON\'T LOAD: data type is not corrected")
-        ErrorChecker.error_name(ViewTemp.input_location(), input_file_name, "ERROR: INPUT FILE IS NOT FIND")
+        ErrorChecker.error_name(ViewFileLocation.input_location(), input_file_name, "ERROR: INPUT FILE IS NOT FIND")
 
         from Controller.main_controller import MainController
         with open(input_file_name, 'r') as diagram_file:
@@ -24,3 +24,4 @@ class FileReader:
                 MainController.pass_set_up(overall_reader_file)
             else:
                 print('ERROR: FILE DON\'T LOADED')
+

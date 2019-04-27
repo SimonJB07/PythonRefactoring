@@ -10,8 +10,7 @@ class DiagramModel:
     def get_id():
         pass
 
-    @staticmethod
-    def get_name(name):
+    def get_name(self, name):
         pass
 
     @staticmethod
@@ -29,7 +28,6 @@ class TestModel:
     def get_last_name():
         pass
 
-    @staticmethod
-    def get_count_students(name):
+    def get_count_students(self, name):
         pass
 

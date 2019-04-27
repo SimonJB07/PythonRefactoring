@@ -1,4 +1,4 @@
-from View.view_temp import ViewTemp
+from View.view_file_location import ViewFileLocation
 from Controller.main_error_checker import ErrorChecker
 
 
@@ -11,11 +11,11 @@ class FileWriter:
         and having the values as the print outs
         the loop steps though each key in dict
         """
-        output_file_name = ViewTemp.output_location()
+        output_file_name = ViewFileLocation.output_location()
 
         ErrorChecker.error_type(str, output_file_name, "FILE NAME: datatype not corrected")
         ErrorChecker.error_type(list, overall_content, "OVERALL DATA: datatype not corrected")
-        ErrorChecker.error_name(ViewTemp.output_location(), output_file_name, "FILE IS NOT NAMED CORRECTLY")
+        ErrorChecker.error_name(ViewFileLocation.output_location(), output_file_name, "FILE IS NOT NAMED CORRECTLY")
 
         from Controller.main_controller import MainController
         with open(output_file_name, "w") as output_file:

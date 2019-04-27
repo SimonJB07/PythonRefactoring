@@ -1,24 +1,34 @@
 """
 >>> from Model.set_up_diagram import SetUp
->>> SetUp(self.full_class_dict == {})
+>>> SetUp().full_class_dict == {}
+True
+>>> SetUp().relationship_list == []
+True
+>>> SetUp().attribute_list == []
+True
+>>> SetUp().method_list == []
+True
+>>> SetUp().final_uml_list == []
+True
+>>> SetUp().overall_content == []
 True
 
->>> SetUp(self.relationship_list == [])
-True
->>> SetUp.set_up_class_name('DiagramModel')
+>>> from Model.class_name import ClassName
+>>> ClassName.set_up_class_name('DiagramModel')
 'DiagramModel'
->>> SetUp.set_up_class_name('TestModel')
+>>> ClassName.set_up_class_name('TestModel')
 'TestModel'
 
+>>> from Model.attributes import Attribute
+>>> Attribute.set_up_attribute_name('String data_name:')
+'data_name: str'
+>>> Attribute.set_up_attribute_name('List id_number:')
+'id_number: list'
+>>> Attribute.set_up_attribute_name('int count_students:')
+'count_students: int'
 
->>> SetUp.set_up_attribute_name('String data_name:')
-'str  data_name:'
->>> SetUp.set_up_attribute_name('List id_number:')
-'list  id_number:'
->>> SetUp.set_up_attribute_name('int count_students:')
-'int  count_students:'
-
->>> SetUp.set_up_method_name('String name')
+>>> from Model.method import Method
+>>> Method.set_up_method_name('String name')
 ' name'
 
 >>> from Model.relationships import Relationships
@@ -66,11 +76,5 @@ True
 'tuple '
 >>> FormatData.clear_up_data('Dict')
 'dict '
-
-from View.view_temp import ViewTemp
->>> ViewTemp.input_location()
-'../Data/ClassDiagram.txt'
->>> ViewTemp.output_location() = '../DataOutput/output_file.py'
-'../DataOutput/output_file.py'
 
 """

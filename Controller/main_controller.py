@@ -1,13 +1,13 @@
 from View.file_reader import FileReader
 from View.file_writer import FileWriter
-from View.view_temp import ViewTemp
-from Tests.test_set_up_class import TestSetUp
-from Tests.main_test_file import tests
+from View.view_file_location import ViewFileLocation
+from Tests.unit_tests import TestSetUp
+from Tests.main_test_file import doc_tests
 from Model.set_up_diagram import SetUp
 from Model.class_name import ClassName
 from Model.relationships import Relationships
 from Model.attributes import Attribute
-from Model.methods import Methods
+from Model.method import Method
 from Model.validate_data import ValidateData
 
 
@@ -15,7 +15,7 @@ class MainController:
 
     @staticmethod
     def read_data():
-        FileReader.file_reader(ViewTemp.input_location())
+        FileReader.file_reader(ViewFileLocation.input_location())
 
     @staticmethod
     def write_name(data):
@@ -37,7 +37,7 @@ class MainController:
 
     @staticmethod
     def get_doctest():
-        doc_test = tests()
+        doc_test = doc_tests()
         return doc_test
 
     @staticmethod
@@ -54,7 +54,7 @@ class MainController:
 
     @staticmethod
     def methods_print(value, output):
-        Methods.methods_print(value, output)
+        Method.methods_print(value, output)
 
     @staticmethod
     def pass_set_up(output):

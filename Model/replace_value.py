@@ -3,7 +3,7 @@ from enum import Enum
 
 class Replace(Enum):
     STRING = 'str '
-    INTEGER = 'int '
+    INT = 'int '
     FLOAT = 'float '
     BOOLEAN = 'bool '
     LIST = 'list '
