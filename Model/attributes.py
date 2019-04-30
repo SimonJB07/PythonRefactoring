@@ -23,8 +23,6 @@ class Attribute:
 
     @staticmethod
     def attribute_print(value, output):
-        print(value)
-        print(output)
         for attributes in value:
             print(f"        self.{attributes}", file=output)
             print(f"        self.{attributes}")

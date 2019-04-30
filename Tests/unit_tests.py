@@ -5,8 +5,7 @@ from Model.relationships import Relationships
 from Model.attributes import Attribute
 from Model.method import Method
 from Model.class_name import ClassName
-from Model.set_up_diagram import SetUp
-
+from View.view_file_location import ViewFileLocation
 
 class TestSetUp(unittest.TestCase):
     """unit test that cover some part of the program
@@ -53,7 +52,12 @@ class TestSetUp(unittest.TestCase):
         result = Attribute.attribute_clean("Stringdata_name:")
         self.assertEqual(result, "data_name: str")
 
-    def test_set_up_attribute_print(self):
+    def test_location_input(self):
         print('Test 9')
-        # result = Attribute.attribute_print("str data_name: ", '../DataOutput/output_file.py')
-        # self.assertEqual(result, "print(f        self.data_name: str", '../DataOutput/output_file.py)')
+        result = ViewFileLocation.input_location()
+        self.assertEqual(result, '../Data/ClassDiagram.txt')
+
+    def test_location_input_error(self):
+        print('Test 9')
+        self.failureException(ViewFileLocation.input_location())
+        self.setUp()

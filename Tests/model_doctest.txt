@@ -20,24 +20,22 @@ True
 'TestModel'
 
 >>> from Model.attributes import Attribute
->>> Attribute.set_up_attribute_name('String data_name:')
+>>> Attribute.error_check_attribute('String data_name:')
 'data_name: str'
->>> Attribute.set_up_attribute_name('List id_number:')
+>>> Attribute.error_check_attribute('List id_number:')
 'id_number: list'
->>> Attribute.set_up_attribute_name('int count_students:')
+>>> Attribute.error_check_attribute('int count_students:')
 'count_students: int'
 >>> Attribute.attribute_clean('Stringdata_name:')
 'data_name: str'
 
 >>> from Model.method import Method
->>> Method.set_up_method_name('String name')
+>>> Method.error_check_method('String name')
 ' name'
 
 >>> from Model.relationships import Relationships
->>> Relationships.set_up_relationship('test_model: TestModel')
+>>> Relationships.error_check_relationship('test_model: TestModel')
 'test_model: TestModel'
->>> Relationships.clean_up_relationship('--')
-': '
 
 >>> from Model.format_data import FormatData
 >>> FormatData.reverse_words('too word')

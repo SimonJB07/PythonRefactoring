@@ -13,8 +13,19 @@ from Model.validate_data import ValidateData
 class MainController:
 
     @staticmethod
+    def main():
+        try:
+            MainController.read_data()
+            MainController.get_doctest()
+            MainController.get_unittest()
+        except Exception as e:
+            print("MAIN ERROR: main.py error")
+            print(e)
+
+
+    @staticmethod
     def read_data():
-        FileReader.file_reader(ViewFileLocation.input_location())
+        FileReader.file_reader(ViewFileLocation().input_location())
 
     @staticmethod
     def write_name(data):
@@ -24,20 +35,18 @@ class MainController:
     def pickle_write_call():
         import pickle
         with open('data.pickle', 'wb') as f:
-            pickle.dump(SetUp.final_uml_list, f)
+            pickle.dump(SetUp().final_uml_list, f)
         with open('data.pickle', 'rb') as f:
             data = pickle.load(f)
             print(data)
 
     @staticmethod
     def get_unittest():
-        full_test = MainTests.unit_test()
-        return full_test
+        return MainTests.unit_test()
 
     @staticmethod
     def get_doctest():
-        doc_test = MainTests.doc_tests()
-        return doc_test
+        return MainTests.doc_tests()
 
     @staticmethod
     def class_print(value, output_file):

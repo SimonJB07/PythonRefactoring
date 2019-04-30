@@ -1,6 +1,5 @@
 from cmd import Cmd
 from Controller.main_controller import MainController
-from Model.set_up_diagram import self
 
 
 class TestData(Cmd):

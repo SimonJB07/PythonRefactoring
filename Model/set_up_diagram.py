@@ -62,10 +62,3 @@ class SetUp(object):
         self.attribute_list = []
         self.method_list = []
         self.relationship_list = []
-
-    def set_full_data(self):
-        # dead Code
-
-        return self.final_uml_list
-
-
